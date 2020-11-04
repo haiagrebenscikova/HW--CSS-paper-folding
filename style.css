@@ -13,36 +13,57 @@ body {
     right: 0;
     margin: auto;
     perspective: 1000px;
+    background-color: #333;
 }
 .paper-effect>div {
-    border: 1px solid black;
     width: 198px;
     height: 598px;
     float: left;
     background-image: url(photo.jpg);
 }
-.paper-effect>div:nth-child(1) { 
-    background-image: linear-gradient(to right, black, transparent, white) ;
+.paper-effect>div::before {
+    content: " ";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+.paper-effect:hover>div::before {
+    opacity: 1;
+}
+.paper-effect>div:nth-child(1)::before { 
+    background-image: linear-gradient(#0007, transparent, #0007);
 }
 .paper-effect>div:nth-child(2) {
     background-position: -200px 0;
+}
+.paper-effect>div:nth-child(2)::before, .paper-effect>div:nth-child(4)::before {
+    background-image: linear-gradient(90deg, #000b, transparent, #fff5 95%, white);
+}
+.paper-effect:hover>div:nth-child(2) {
     transform: translateX(-50px) rotateY(-45deg) scaleY(1.07);
-    background-image: linear-gradient(to left, black, transparent, white);
 }
 .paper-effect>div:nth-child(3) {
     background-position: -400px 0;
+}
+.paper-effect>div:nth-child(3)::before, .paper-effect>div:nth-child(5)::before {
+    background-image: linear-gradient(270deg, #000b, transparent);
+}
+.paper-effect:hover>div:nth-child(3) {
     transform: translateX(-110px) rotateY(45deg) scaleY(1.07);
-    /*background-image: linear-gradient(to right, black, transparent, white);*/
 }
 .paper-effect>div:nth-child(4) {
     background-position: -600px 0;
-    transform: translateX(-170px) rotateY(-45deg) scaleY(1.07);
-    /*background-image: linear-gradient(to left, black, transparent, white);*/
+}
+.paper-effect:hover>div:nth-child(4) {
+    transform: translateX(-170px) rotateY(-45deg) scaleY(1.07); 
 }
 .paper-effect>div:nth-child(5) {
     background-position: -800px 0;
+}
+.paper-effect:hover>div:nth-child(5) {
     transform: translateX(-230px) rotateY(45deg) scaleY(1.07);
-    /*background-image: linear-gradient(to right, black, transparent, white);*/
 }
 
 
